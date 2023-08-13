@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Masterlayout from '../layouts/Masterlayout';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 function CheckIn(props) {
     const navigate = useNavigate();
@@ -22,10 +23,17 @@ function CheckIn(props) {
 
             const {user} = response.data;
             localStorage.setItem('user', JSON.stringify(user));
+            Swal.fire({
+                icon: "success",
+                title: "Đăng nhập thành công!",
+                showConfirmButton: false,
+                timer: 1500,
+            });
 
             // Điều hướng tới trang sau khi đăng nhập thành công
             navigate('/');
         } catch (error) {
+            alert('đăng nhập thất bại');
             navigate('/checkin');
         }
     };
@@ -57,7 +65,12 @@ function CheckIn(props) {
             console.log(response.data.user);
 
             if (response.data?.user) {
-                alert('đăng ký thành công');
+                Swal.fire({
+                    icon: "success",
+                    title: "Đăng Ký thành công!",
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
                 setRegisterdata({
                     name: '',
                     emai: '',

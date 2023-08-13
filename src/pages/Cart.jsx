@@ -111,12 +111,7 @@ function Cart(props) {
                         
                         <hr />
                         <p className="buttons center">
-                            <button className="btn" type="button">
-                                Update
-                            </button>
-                            <button className="btn" type="button">
-                                Continue
-                            </button>
+                           
                             <Link to="/checkout" className="btn btn-inverse" type="submit" id="checkout">
                                 Checkout
                             </Link>
@@ -204,13 +199,13 @@ function Cart(props) {
                                                     </a>
                                                     <br />
                                                     <a href="product_detail.html" className="title">
-                                                        Tempor sem sodales
+                                                        
                                                     </a>
                                                     <br />
                                                     <a href="#" className="category">
-                                                        Urna nec lectus mollis
+                                                        
                                                     </a>
-                                                    <p className="price">$134</p>
+                                                    <p className="price"></p>
                                                 </div>
                                             </li>
                                         </ul>

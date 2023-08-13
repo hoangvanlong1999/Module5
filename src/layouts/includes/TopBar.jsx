@@ -30,56 +30,50 @@ function TopBar(props) {
   };
 
   return (
-    <div id="top-bar" className="container">
-      <div className="row">
-        <div className="span4">
-          <form onSubmit={handleSubmit} className="search-form">
-            <input
-              type="text"
-              placeholder="Tìm kiếm..."
-              value={searchKeyword}
-              onChange={(event) => setSearchKeyword(event.target.value)}
-            />
-            <button type="submit">Tìm kiếm</button>
-          </form>
-        </div>
-        <div className="span8">
-          <div className="account pull-right">
-            <ul className="user-menu">
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/cart">Your Cart</Link>
-              </li>
-              <li>
-                <Link to="/logout">Logout</Link>
-              </li>
-              <li>
-                {acc !== null ? (
-                  <div>
-                    <b style={{ marginRight: '5px' }}>{acc.name}</b>
-                    <Link onClick={LogOut}>Logout</Link>
-                  </div>
-                ) : (
-                  <Link to="/checkin">Login</Link>
-                )}
-              </li>
-            </ul>
+    <>
+      <style
+        dangerouslySetInnerHTML={{
+          __html:
+            "\n.search-form {\n  display: flex;\n  justify-content: center;\n}\n\n.search-form .input-group {\n  max-width: 300px;\n}\n\n.search-form .form-control {\n  border-radius: 0;\n}\n\n.search-form .btn {\n  border-radius: 0;\n}\n.search-form .btn {\n  font-size: 10px;\n  padding: 3px 8px;\n}\n\n"
+        }}
+      />
+
+
+
+
+      <div id="top-bar" className="container">
+        <div className="row">
+          <div class="span4">
+            <form method="POST" class="search_form">
+              <input type="text" class="input-block-level search-query" Placeholder="search..."/>
+            </form>
+          </div>
+          <div className="span8">
+            <div className="account pull-right">
+              <ul className="user-menu">
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/cart">Your Cart</Link>
+                </li>
+                <li>
+                  {acc !== null ? (
+                    <div>
+                      <b style={{ marginRight: '5px' }}>{acc.name}</b>
+                      <Link onClick={LogOut}>Logout</Link>
+                    </div>
+                  ) : (
+                    <Link to="/checkin">Login</Link>
+                  )}
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-      {searchResults.length > 0 && (
-        <div className="search-results">
-          <h3>Kết quả tìm kiếm:</h3>
-          <ul>
-            {searchResults.map((result) => (
-              <li key={result.id}>{result.name}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
+    </>
+
   );
 }
 

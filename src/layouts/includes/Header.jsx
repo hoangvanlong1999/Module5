@@ -9,7 +9,7 @@ function Header(props) {
                 <div className="navbar-inner main-menu">
                     <Link to="/" className="logo pull-left">
                         <img
-                            src="/assets/themes/images/logo.png"
+                            src="/assets/themes/images/logo2.png"
                             className="site_logo"
                             alt=""
                         />
